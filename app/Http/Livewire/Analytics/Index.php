@@ -92,7 +92,7 @@ class Index extends Component
 
             foreach($this->courses as $course){
 
-              $students = $course->students->pluck('id');
+                $students = $course->students->pluck('id');
 
                 $tick_data = array();
 
@@ -131,10 +131,6 @@ class Index extends Component
         $this->ticks = json_encode(array_values($data));
 
         $this->emit('updatedFilter', $this->ticks);
-    }
-
-    public function updateCourse(){
-
     }
 
     public function updateSection(){
@@ -231,21 +227,21 @@ class Index extends Component
     }
 
     protected function getDateFormat($range = 'month'){
-      switch($range){
-        case 'year':
-            $date_format = '%Y';
-          break;
-        
-        case 'week':
-            $date_format = '%v-%x';
-        break;
+        switch($range){
+            case 'year':
+                $date_format = '%Y';
+                break;
+            
+            case 'week':
+                $date_format = '%v-%x';
+            break;
 
-        default:
-        case 'month':
-          $date_format = '%m-%Y';
-        break; 
-      }
+            case 'month':
+            default:
+                $date_format = '%m-%Y';
+            break;
+        }
 
-      return $date_format;
+        return $date_format;
     }
 }
